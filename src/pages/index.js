@@ -1,9 +1,13 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import Navbar from "../components/Navbar";
-import Section2 from "../components/Section2";
+import { graphql } from "gatsby";
+import "./index.css";
+import Footer from "../components/Footer";
+import Calculator from "../components/Calculator";
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+  const dataRender = data.allContentfulComponent.edges;
   return (
     <>
       <Helmet>
@@ -20,20 +24,11 @@ const IndexPage = () => {
           crossorigin="anonymous"
         />
         <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
           crossorigin="anonymous"
         ></script>
-        <script
-          src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
-          integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
-          crossorigin="anonymous"
-        ></script>
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
-          integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
-          crossorigin="anonymous"
-        ></script>
+
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link
           rel="preconnect"
@@ -41,15 +36,98 @@ const IndexPage = () => {
           crossorigin
         ></link>
         <link
-          href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Open+Sans:wght@600&family=Poppins:ital,wght@0,100;0,200;1,100&family=Roboto+Mono:wght@100&family=Roboto:wght@100;300;400;500&family=Smooch+Sans:wght@200&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Open+Sans:wght@600&family=Poppins:ital,wght@0,100;0,200;1,100&family=Roboto+Mono:wght@100&family=Roboto:wght@100;300;400;500&family=Smooch+Sans:wght@200&display=swap"
           rel="stylesheet"
         ></link>
       </Helmet>
       <Navbar />
-      <Section1 />
-      <Section2 />
+      <div className="main">
+        <div className="row">
+          {dataRender.map((item) => {
+            return (
+              <section
+                className={item.node.config.className}
+                id={item.node.config.idKey || ""}
+                key={item.node.id}
+                style={{
+                  backgroundImage: `url(${item.node.background?.url || ""})`,
+                }}
+              >
+                <div className="container">
+                  {item.node.logo ? (
+                    <img
+                      src={item.node.logo.url}
+                      alt=""
+                      width="200px"
+                      height="200px"
+                    />
+                  ) : (
+                    ""
+                  )}
+                  <h1 className="title">{item.node.title}</h1>
+                  <p
+                    className="description"
+                    style={{ color: `${item.node.config.style?.color || ""}` }}
+                  >
+                    {item.node.description?.description || ""}
+                  </p>
+                  {item.node.config.button ? (
+                    <a
+                      className="button"
+                      href={item.node.config.button.link}
+                      role="button"
+                    >
+                      {item.node.config.button.title}
+                    </a>
+                  ) : (
+                    ""
+                  )}
+                  {item.node.config.html ? <Calculator /> : ""}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+      </div>
+      <Footer />
     </>
   );
 };
+
+export const query = graphql`
+  query {
+    allContentfulComponent(sort: { fields: order, order: ASC }) {
+      edges {
+        node {
+          background {
+            url
+          }
+          config {
+            button {
+              className
+              element
+              link
+              title
+            }
+            className
+            html
+            style {
+              color
+            }
+            idKey
+          }
+          description {
+            description
+          }
+          logo {
+            url
+          }
+          title
+          id
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;

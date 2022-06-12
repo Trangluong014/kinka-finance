@@ -1,0 +1,173 @@
+.main {
+  max-width: 100%;
+  overflow: hidden;
+  background-color: rgb(251, 253, 255);
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.title {
+  font-weight: 900;
+}
+.button {
+  padding: 1rem 2rem;
+  background-color: #ff8049;
+  color: white;
+  cursor: pointer;
+  border: none;
+  box-shadow: rgb(0 0 0 / 5%) 0px 4px 60px;
+  width: 201px;
+  height: 62px;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+.description {
+  opacity: 0.8;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+#hero {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#hero,
+#features,
+#mortgageCalculator {
+  min-height: 500px;
+}
+
+#hero .container {
+  padding-left: 7rem;
+  padding-right: 28rem;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#hero .description {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+#hero .title,
+#intro .title,
+#features .title {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+#intro {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.introCard {
+  height: 408px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.introCard .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: column wrap;
+  max-width: 356px;
+  padding: 1.25em;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(58 86 78 / 7%) 0px 4px 120px;
+  height: 408px;
+}
+
+.introCard .description {
+  text-align: center;
+}
+
+.introCard .title {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+#mortgage .container {
+  margin-left: 7rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  max-width: 536px;
+  color: white;
+}
+#mortgage .title {
+  font-size: 2.5rem;
+  line-height: 1.5;
+}
+
+#features .container {
+  margin-top: 7rem;
+  color: #27292e;
+  padding-left: 2rem;
+  padding-right: 5rem;
+}
+
+#features .description {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  color: #585c65;
+}
+
+@media (max-width: 739px) {
+  #hero .title,
+  #intro .title {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+  #hero .container,
+  #intro .container,
+  #mortgage .container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .button {
+    width: 150px;
+    height: 56px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  #hero .title,
+  #intro .title {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  #hero .container,
+  #intro .container,
+  #mortgage.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  #hero .container {
+    justify-content: flex-start;
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .introCard .container {
+    width: 300px;
+  }
+}

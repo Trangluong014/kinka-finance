@@ -1,5 +1,5 @@
-import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import {
   heroContainer,
   heroInsideContainer,
@@ -36,7 +36,7 @@ function Section1() {
         backgroundImage: `url(${data.allContentfulHeroComponent.edges[0].node.background.url})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        heigh: "100vh",
+        heigh: "67vw",
         minHeight: "500px",
         fontFamily: "Nunito Sans",
       }}

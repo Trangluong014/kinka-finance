@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-left: 10vw;
+  margin-left: 10.42vw;
   margin-right: 50vw;
 }
 .heroDescription {
@@ -26,4 +26,6 @@
   cursor: pointer;
   border: none;
   box-shadow: rgb(0, 0, 0);
+  width: 13vw;
+  height: 4.3vw;
 }
