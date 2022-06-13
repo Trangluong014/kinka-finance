@@ -108,6 +108,7 @@
   margin-top: 3rem;
   margin-bottom: 3rem;
   color: white;
+  max-width: 900px;
 }
 #mortgage .title {
   font-size: 2.5rem;
@@ -140,11 +141,17 @@
     margin-left: auto;
     margin-right: auto;
   }
+
   #hero .container {
     justify-content: flex-start;
     padding-top: 50px;
-    padding-left: 2rem;
     padding-right: 10rem;
+    padding-left: 2rem;
+  }
+
+  #mortgage .container {
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
   .button {
     width: 150px;
@@ -187,5 +194,17 @@
   }
   #hero .container .description {
     font-size: 14 !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  #mortgage .container {
+    max-width: 450px;
+  }
+}
+
+@media (min-width: 1400px) {
+  #mortgage .container {
+    max-width: 536px;
   }
 }
