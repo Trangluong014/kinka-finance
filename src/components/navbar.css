@@ -1,0 +1,27 @@
+@media (max-width: 500px) {
+  .nav-link {
+    font-size: 14px;
+  }
+}
+
+.nav-link {
+  text-align: right;
+  color: white !important;
+  opacity: 0.6;
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.navbar-toggler-icon {
+  background-image: url("../images/toggle-bg.svg");
+}
+
+.navbar-toggler {
+  border: 1px solid white !important;
+}
+
+.navbar-toggler:hover {
+  border: 1px solid white !important;
+  box-shadow: none;
+}

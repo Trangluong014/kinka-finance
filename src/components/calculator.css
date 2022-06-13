@@ -7,11 +7,15 @@
   font-weight: 800;
 }
 .calculatorText {
-  font-size: 24px;
+  font-size: 20px;
 }
 .calculatorNum {
-  font-size: 24px;
+  font-size: 20px;
   color: #ff8049;
+}
+.formControl {
+  padding: 10px 20px 10px 0;
+  width: 40%;
 }
 input[type="range"] {
   -webkit-appearance: none;

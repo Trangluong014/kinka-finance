@@ -7,14 +7,13 @@ const Calculator = () => {
   const [repayment, setRepayment] = useState(25);
   const [interest, setInterest] = useState(3);
 
-  let monthlyPayment =
-    (purchase - payment) *
-    (((interest / 12 / 100) * (1 + interest / 12 / 100) ** (repayment * 12)) /
-      ((1 + interest / 12 / 100) ** (repayment * 12) - 1));
-  // console.log((1+interest/12/100)**(repayment*12), "hello");
+  let r = interest / 12 / 100;
+  let p = purchase - payment;
+  let n = repayment * 12;
+  let monthlyPayment = p * ((r * (1 + r) ** n) / ((1 + r) ** n - 1));
+
   const formatPrice = (number) => {
     const newNumber = Intl.NumberFormat("en-US", {
-      // style:'currency',
       currency: "USD",
     }).format(number);
     return newNumber;
@@ -36,74 +35,67 @@ const Calculator = () => {
   return (
     <div>
       <div className="calculatorWrapper">
-        <div
-          className="formControl"
-          style={{ width: "35%", padding: "10px 20px 10px 0" }}
-        >
-          <div className="calculatorInputTitle">
-            Purchase Price: ${formatPrice(purchase)}
+        <div className="row">
+          <div className="formControl col-6">
+            <div className="calculatorInputTitle">
+              Purchase Price: ${formatPrice(purchase)}
+            </div>
+
+            <input
+              type="range"
+              name="purchase"
+              onChange={updateFilter}
+              min="0"
+              max="1000000"
+              value={purchase}
+            />
           </div>
 
-          <input
-            type="range"
-            name="purchase"
-            onChange={updateFilter}
-            min="0"
-            max="1000000"
-            value={purchase}
-          />
-        </div>
+          <div className="formControl col-6">
+            <div className="calculatorInputTitle">
+              Down Payment: ${formatPrice(payment)}
+            </div>
 
-        <div
-          className="formControl"
-          style={{ width: "35%", padding: "10px 20px 10px 0" }}
-        >
-          <div className="calculatorInputTitle">
-            Down Payment: ${formatPrice(payment)}
+            <input
+              type="range"
+              name="payment"
+              onChange={updateFilter}
+              min="0"
+              max="300000"
+              value={payment}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="formControl col-6">
+            <div className="calculatorInputTitle">
+              Repayment time: {repayment} years
+            </div>
+
+            <input
+              type="range"
+              name="time"
+              onChange={updateFilter}
+              min="0"
+              max="100"
+              value={repayment}
+            />
           </div>
 
-          <input
-            type="range"
-            name="payment"
-            onChange={updateFilter}
-            min="0"
-            max="300000"
-            value={payment}
-          />
-        </div>
+          <div className="formControl col-6">
+            <div className="calculatorInputTitle">
+              Interest Rate: {interest}%
+            </div>
 
-        <div
-          className="formControl"
-          style={{ width: "35%", padding: "10px 20px 10px 0" }}
-        >
-          <div className="calculatorInputTitle">
-            Repayment time: {repayment} years
+            <input
+              type="range"
+              name="interest"
+              onChange={updateFilter}
+              min="0"
+              max="20"
+              value={interest}
+            />
           </div>
-
-          <input
-            type="range"
-            name="time"
-            onChange={updateFilter}
-            min="0"
-            max="100"
-            value={repayment}
-          />
-        </div>
-
-        <div
-          className="formControl"
-          style={{ width: "35%", padding: "10px 20px 10px 0" }}
-        >
-          <div className="calculatorInputTitle">Interest Rate: {interest}%</div>
-
-          <input
-            type="range"
-            name="interest"
-            onChange={updateFilter}
-            min="0"
-            max="20"
-            value={interest}
-          />
         </div>
       </div>
 
