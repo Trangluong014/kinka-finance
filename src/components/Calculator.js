@@ -37,9 +37,9 @@ const Calculator = () => {
       <div className="calculatorWrapper">
         <div className="row">
           <div className="formControl col-6">
-            <div className="calculatorInputTitle">
+            <label className="calculatorInputTitle" for="purchase">
               Purchase Price: ${formatPrice(purchase)}
-            </div>
+            </label>
 
             <input
               type="range"
@@ -48,13 +48,14 @@ const Calculator = () => {
               min="0"
               max="1000000"
               value={purchase}
+              id="purchase"
             />
           </div>
 
           <div className="formControl col-6">
-            <div className="calculatorInputTitle">
+            <label className="calculatorInputTitle" for="payment">
               Down Payment: ${formatPrice(payment)}
-            </div>
+            </label>
 
             <input
               type="range"
@@ -63,14 +64,15 @@ const Calculator = () => {
               min="0"
               max="300000"
               value={payment}
+              id="payment"
             />
           </div>
         </div>
         <div className="row">
           <div className="formControl col-6">
-            <div className="calculatorInputTitle">
+            <label className="calculatorInputTitle" for="repayment">
               Repayment time: {repayment} years
-            </div>
+            </label>
 
             <input
               type="range"
@@ -79,13 +81,14 @@ const Calculator = () => {
               min="0"
               max="100"
               value={repayment}
+              id="repayment"
             />
           </div>
 
           <div className="formControl col-6">
-            <div className="calculatorInputTitle">
+            <label className="calculatorInputTitle" for="interest">
               Interest Rate: {interest}%
-            </div>
+            </label>
 
             <input
               type="range"
@@ -94,6 +97,7 @@ const Calculator = () => {
               min="0"
               max="20"
               value={interest}
+              id="interest"
             />
           </div>
         </div>
