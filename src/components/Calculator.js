@@ -36,69 +36,71 @@ const Calculator = () => {
     <div>
       <div className="calculatorWrapper">
         <div className="row">
-          <div className="formControl col-6">
-            <label className="calculatorInputTitle" for="purchase">
+          <div className="row">
+            <label className="calculatorInputTitle col-6" for="purchase">
               Purchase Price: ${formatPrice(purchase)}
             </label>
-
-            <input
-              type="range"
-              name="purchase"
-              onChange={updateFilter}
-              min="0"
-              max="1000000"
-              value={purchase}
-              id="purchase"
-            />
-          </div>
-
-          <div className="formControl col-6">
-            <label className="calculatorInputTitle" for="payment">
+            <label className="calculatorInputTitle col-6" for="payment">
               Down Payment: ${formatPrice(payment)}
             </label>
-
-            <input
-              type="range"
-              name="payment"
-              onChange={updateFilter}
-              min="0"
-              max="300000"
-              value={payment}
-              id="payment"
-            />
           </div>
-        </div>
-        <div className="row">
-          <div className="formControl col-6">
-            <label className="calculatorInputTitle" for="repayment">
+          <div className="row">
+            <div className="formControl col-6">
+              <input
+                type="range"
+                name="purchase"
+                onChange={updateFilter}
+                min="0"
+                max="1000000"
+                value={purchase}
+                id="purchase"
+              />
+            </div>
+
+            <div className="formControl col-6">
+              <input
+                type="range"
+                name="payment"
+                onChange={updateFilter}
+                min="0"
+                max="300000"
+                value={payment}
+                id="payment"
+              />
+            </div>
+          </div>
+          <div className="row">
+            <label className="calculatorInputTitle col-6" for="repayment">
               Repayment time: {repayment} years
             </label>
-
-            <input
-              type="range"
-              name="time"
-              onChange={updateFilter}
-              min="0"
-              max="100"
-              value={repayment}
-              id="repayment"
-            />
-          </div>
-
-          <div className="formControl col-6">
-            <label className="calculatorInputTitle" for="interest">
+            <label className="calculatorInputTitle col-6" for="interest">
               Interest Rate: {interest}%
             </label>
+          </div>
+          <div className="row">
+            <div className="formControl col-6">
+              <input
+                type="range"
+                name="time"
+                onChange={updateFilter}
+                min="0"
+                max="100"
+                value={repayment}
+                id="repayment"
+              />
+            </div>
 
-            <input
-              type="range"
-              name="interest"
-              onChange={updateFilter}
-              min="0"
-              max="20"
-              value={interest}
-              id="interest"
-            />
+            <div className="formControl col-6">
+              <input
+                type="range"
+                name="interest"
+                onChange={updateFilter}
+                min="0"
+                max="20"
+                value={interest}
+                id="interest"
+              />
+            </div>
           </div>
         </div>
       </div>

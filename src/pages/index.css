@@ -42,6 +42,7 @@
 #hero .container {
   padding-left: 7rem;
   padding-right: 28rem;
+  padding-bottom: 2rem;
   height: 100%;
   color: white;
   display: flex;
@@ -74,17 +75,19 @@
 }
 
 .introCard {
-  height: 408px;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
 }
-
+.introLogo {
+  width: 150px;
+  height: 150px;
+}
 .introCard .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   flex-flow: column wrap;
   max-width: 356px;
@@ -104,7 +107,7 @@
 }
 
 #mortgage .container {
-  margin-left: 7rem;
+  padding-left: 2rem;
   margin-top: 3rem;
   margin-bottom: 3rem;
   color: white;
@@ -151,7 +154,7 @@
 
   #mortgage .container {
     padding-left: 5rem;
-    padding-right: 5rem;
+    padding-right: 2rem;
   }
   .button {
     width: 150px;
@@ -172,7 +175,7 @@
     margin-left: auto;
     margin-right: auto;
     padding-left: 2rem;
-    padding-right: 2rem;
+    padding-right: 1rem;
     display: block;
     overflow: wrap;
   }
@@ -193,6 +196,9 @@
   }
   .description {
     font-size: 14px;
+  }
+  #hero .description {
+    max-width: 400px;
   }
 }
 

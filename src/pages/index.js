@@ -62,8 +62,7 @@ const IndexPage = ({ data }) => {
                     <img
                       src={item.node.logo.url}
                       alt=""
-                      width="200px"
-                      height="200px"
+                      className="introLogo"
                     />
                   ) : (
                     ""
@@ -86,7 +85,7 @@ const IndexPage = ({ data }) => {
                   ) : (
                     ""
                   )}
-                  {item.node.config.html ? <Calculator /> : ""}
+                  {item.node.calculator ? <Calculator /> : ""}
                 </div>
               </section>
             );
@@ -103,6 +102,13 @@ export const query = graphql`
     allContentfulComponent(sort: { fields: order, order: ASC }) {
       edges {
         node {
+          calculator
+          description {
+            description
+          }
+          logo {
+            url
+          }
           background {
             url
           }
@@ -114,17 +120,10 @@ export const query = graphql`
               title
             }
             className
-            html
+            idKey
             style {
               color
             }
-            idKey
-          }
-          description {
-            description
-          }
-          logo {
-            url
           }
           title
           id

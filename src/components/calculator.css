@@ -5,6 +5,7 @@
 .calculatorInputTitle {
   font-size: 18px;
   font-weight: 800;
+  padding: 10px 20px 10px 0;
 }
 .calculatorText {
   font-size: 20px;
@@ -15,7 +16,6 @@
 }
 .formControl {
   padding: 10px 20px 10px 0;
-  width: 40%;
 }
 input[type="range"] {
   -webkit-appearance: none;
